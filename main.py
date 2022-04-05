@@ -18,9 +18,8 @@ logger.addHandler(handler)
 load_dotenv()
 TOKEN = os.getenv('DISCORD_TOKEN')
 COMMAND_PREFIX = os.getenv('COMMAND_PREFIX')
-CHANNEL = os.getenv('CHANNEL')
 
 # make the bot
 bot = commands.Bot(command_prefix=COMMAND_PREFIX)
-bot.add_cog(Fetcher(bot, CHANNEL))
+bot.add_cog(Fetcher(bot))
 bot.run(TOKEN)
