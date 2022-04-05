@@ -9,8 +9,12 @@ class Fetcher(commands.Cog):
 
     @commands.command(help='Get a random fact from the runescape wiki.') 
     async def random(self, ctx):
-        text = self.fetcher.get_text()
+        text, url = self.fetcher.get_text()
         if text:
-            await ctx.send(f"Did you know that:\n{text}")
+            await ctx.send(f"""Did you know that:\n
+            {text}
+
+            Learn more: {url}
+            """)
         else:
             await ctx.send(f"Something went wrong...")

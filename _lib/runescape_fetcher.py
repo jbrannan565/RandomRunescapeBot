@@ -23,7 +23,7 @@ class RunscapeFetcher:
         req = urllib.request.Request(url, {}, headers)
 
         with urllib.request.urlopen(req) as f:
-            return f.read()
+            return f.read(), f.url
 
     def make_soup(self, html):
         return BeautifulSoup(html, 'html.parser')
@@ -37,8 +37,8 @@ class RunscapeFetcher:
         return cleanhtml(text)
 
     def get_text(self):
-        html = self.fetch_random_page()
+        html, url = self.fetch_random_page()
         soup = self.make_soup(html)
         content = self.get_page_content(soup)
         text = self.get_content_text(content)
-        return text
+        return text, url
