@@ -41,5 +41,4 @@ class RunscapeFetcher:
         soup = self.make_soup(html)
         content = self.get_page_content(soup)
         text = self.get_content_text(content)
-        print(text)
         return text
