@@ -4,7 +4,6 @@ download and parse a random page from runscape.wiki
 from bs4 import BeautifulSoup
 import urllib.request
 
-
 class RunscapeFetcher:
     def __init__(self):
         pass
